@@ -10,3 +10,15 @@ C:\Users\Aluta Jakuja\Documents\C# Projects\PRG2782 project 2024\Group26_PRG2782
 C:\Users\Aluta Jakuja\Documents\C# Projects\PRG2782 project 2024\Group26_PRG2782_Project\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.pdb
 C:\Users\Aluta Jakuja\Documents\C# Projects\PRG2782 project 2024\Group26_PRG2782_Project\Group26_PRG2782_Project\obj\Debug\Student_Mangement_Application.Presentation_Layer.ApplicationFrm.resources
 C:\Users\Aluta Jakuja\Documents\C# Projects\PRG2782 project 2024\Group26_PRG2782_Project\Group26_PRG2782_Project\obj\Debug\Student_Mangement_Application.Presentation_Layer.ReportFrm.resources
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\bin\Debug\Group26_PRG2782_Project.exe.config
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\bin\Debug\Group26_PRG2782_Project.exe
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\bin\Debug\Group26_PRG2782_Project.pdb
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.csproj.AssemblyReference.cache
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Student_Mangement_Application.Presentation_Layer.ApplicationFrm.resources
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Student_Mangement_Application.Presentation_Layer.ReportFrm.resources
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.Properties.Resources.resources
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.csproj.GenerateResource.cache
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.csproj.CoreCompileInputs.cache
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.exe
+C:\Users\neora\OneDrive\Desktop\Belgium campus\2nd Year\PRG282\Project1_2\Group26_PRG2782_Project\obj\Debug\Group26_PRG2782_Project.pdb

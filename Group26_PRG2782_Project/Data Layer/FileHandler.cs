@@ -10,10 +10,17 @@ namespace Group26_PRG2782_Project.Data_Layer
 {
     internal class FileHandler
     {
-        string filename = " students.txt";
+        string filename = "Students.txt";
         List<Student> students = new List<Student>();
 
-        
+        public void AddNewStudent(Student student)
+        {
+            using (StreamWriter sw = new StreamWriter(filename, true))
+            {
+                sw.WriteLine($"{student.StudentId},{student.StudentName},{student.Age},{student.Course}");
+            }
+        }
+
 
 
     }
