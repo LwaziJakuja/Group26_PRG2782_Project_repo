@@ -30,25 +30,25 @@ namespace Student_Mangement_Application.Presentation_Layer
         /// </summary>
         private void InitializeComponent()
         {
-            this.showPassword = new System.Windows.Forms.Button();
+            this.btnPreviousFrm = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotStudents = new System.Windows.Forms.TextBox();
+            this.lblTotStudents = new System.Windows.Forms.Label();
+            this.lblAvgAge = new System.Windows.Forms.Label();
+            this.txtAvgAge = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // showPassword
+            // btnPreviousFrm
             // 
-            this.showPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(103)))), ((int)(((byte)(137)))));
-            this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.showPassword.Location = new System.Drawing.Point(602, 425);
-            this.showPassword.Name = "showPassword";
-            this.showPassword.Size = new System.Drawing.Size(121, 29);
-            this.showPassword.TabIndex = 21;
-            this.showPassword.Text = "back to Database";
-            this.showPassword.UseVisualStyleBackColor = false;
-            this.showPassword.Click += new System.EventHandler(this.showPassword_Click);
+            this.btnPreviousFrm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(103)))), ((int)(((byte)(137)))));
+            this.btnPreviousFrm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPreviousFrm.Location = new System.Drawing.Point(602, 425);
+            this.btnPreviousFrm.Name = "btnPreviousFrm";
+            this.btnPreviousFrm.Size = new System.Drawing.Size(121, 29);
+            this.btnPreviousFrm.TabIndex = 21;
+            this.btnPreviousFrm.Text = "back to Database";
+            this.btnPreviousFrm.UseVisualStyleBackColor = false;
+            this.btnPreviousFrm.Click += new System.EventHandler(this.showPassword_Click);
             // 
             // label4
             // 
@@ -62,38 +62,38 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.label4.Text = "Report Form";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // txtTotStudents
             // 
-            this.textBox1.Location = new System.Drawing.Point(292, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 20);
-            this.textBox1.TabIndex = 25;
+            this.txtTotStudents.Location = new System.Drawing.Point(292, 163);
+            this.txtTotStudents.Name = "txtTotStudents";
+            this.txtTotStudents.Size = new System.Drawing.Size(209, 20);
+            this.txtTotStudents.TabIndex = 25;
             // 
-            // label1
+            // lblTotStudents
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 166);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 13);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Total number of students";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblTotStudents.AutoSize = true;
+            this.lblTotStudents.Location = new System.Drawing.Point(142, 166);
+            this.lblTotStudents.Name = "lblTotStudents";
+            this.lblTotStudents.Size = new System.Drawing.Size(124, 13);
+            this.lblTotStudents.TabIndex = 26;
+            this.lblTotStudents.Text = "Total number of students";
+            this.lblTotStudents.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // lblAvgAge
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 220);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 13);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Average Age of Students";
+            this.lblAvgAge.AutoSize = true;
+            this.lblAvgAge.Location = new System.Drawing.Point(142, 220);
+            this.lblAvgAge.Name = "lblAvgAge";
+            this.lblAvgAge.Size = new System.Drawing.Size(126, 13);
+            this.lblAvgAge.TabIndex = 28;
+            this.lblAvgAge.Text = "Average Age of Students";
             // 
-            // textBox2
+            // txtAvgAge
             // 
-            this.textBox2.Location = new System.Drawing.Point(292, 217);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(209, 20);
-            this.textBox2.TabIndex = 27;
+            this.txtAvgAge.Location = new System.Drawing.Point(292, 217);
+            this.txtAvgAge.Name = "txtAvgAge";
+            this.txtAvgAge.Size = new System.Drawing.Size(209, 20);
+            this.txtAvgAge.TabIndex = 27;
             // 
             // ReportFrm
             // 
@@ -101,12 +101,12 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(735, 466);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblAvgAge);
+            this.Controls.Add(this.txtAvgAge);
+            this.Controls.Add(this.lblTotStudents);
+            this.Controls.Add(this.txtTotStudents);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.showPassword);
+            this.Controls.Add(this.btnPreviousFrm);
             this.Name = "ReportFrm";
             this.Text = "LoginFrm";
             this.Load += new System.EventHandler(this.LoginFrm_Load);
@@ -116,11 +116,11 @@ namespace Student_Mangement_Application.Presentation_Layer
         }
 
         #endregion
-        private Button showPassword;
+        private Button btnPreviousFrm;
         private Label label4;
-        private TextBox textBox1;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox2;
+        private TextBox txtTotStudents;
+        private Label lblTotStudents;
+        private Label lblAvgAge;
+        private TextBox txtAvgAge;
     }
 }
