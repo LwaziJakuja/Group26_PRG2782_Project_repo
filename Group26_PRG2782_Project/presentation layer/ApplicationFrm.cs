@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Student_Mangement_Application.Presentation_Layer
 {
@@ -69,7 +70,7 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text))
+            if (!(valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text)))
             {
                 MessageBox.Show("Cannot insert new details! Please make sure to fill in all necessary fileds before going further.");
             }
@@ -77,6 +78,13 @@ namespace Student_Mangement_Application.Presentation_Layer
             {
                 //handler.Create(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
                 //dataGridView1.DataSource = handler.getData();
+                string sID = txtStudentId.Text;
+                string sName = txtNameSurname.Text;
+                int sAge = Convert.ToInt32(txtAge.Text);
+                string sCourse = cmbCourse.Text;
+                Student newStudent = new Student {StudentId = sID, StudentName = sName, Age = sAge, Course = sCourse};
+                handler.AddNewStudent(newStudent);
+                MessageBox.Show("Student has successfully been added to the textfile");
             }
             txtNameSurname.Clear(); txtAge.Clear(); txtStudentId.Clear(); cmbCourse.Text = " ";
         }

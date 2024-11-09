@@ -149,8 +149,9 @@ namespace Student_Mangement_Application.Presentation_Layer
             // 
             this.cmbCourse.FormattingEnabled = true;
             this.cmbCourse.Items.AddRange(new object[] {
-            "F",
-            "M"});
+            "BCOMP",
+            "BIT",
+            "DIT"});
             this.cmbCourse.Location = new System.Drawing.Point(623, 73);
             this.cmbCourse.Name = "cmbCourse";
             this.cmbCourse.Size = new System.Drawing.Size(104, 21);
@@ -254,11 +255,11 @@ namespace Student_Mangement_Application.Presentation_Layer
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("HP Simplified Hans", 20.25F);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(103)))), ((int)(((byte)(137)))));
             this.label4.Location = new System.Drawing.Point(278, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 31);
+            this.label4.Size = new System.Drawing.Size(342, 31);
             this.label4.TabIndex = 46;
             this.label4.Text = "Student Management Form";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;

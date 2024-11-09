@@ -13,6 +13,11 @@ namespace Group26_PRG2782_Project.Business_logic_layer
         private int age;
         private string course;
 
+        public Student() 
+        {
+            
+        }
+
         public Student(string studentId, string studentName, int age, string course)
         {
             this.studentId = studentId;
