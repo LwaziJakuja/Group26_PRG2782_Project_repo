@@ -38,6 +38,7 @@ namespace Group26_PRG2782_Project.Data_Layer
             return students;
         }
 
+
         public List<Student> Search(string searchVal)
         {
             students = new List<Student>();
@@ -57,7 +58,63 @@ namespace Group26_PRG2782_Project.Data_Layer
             return students;
         }
 
+        public void UpdateStudent(Student updatedStudent, string studentId)
+        {
 
+            try
+            {
+                var students = GetAllStudents();
+                int index = students.FindIndex(s => s.StudentId == studentId);
+
+                if (index >= 0)
+                {
+                    students[index] = updatedStudent;
+                    SaveAllStudents(students);
+                }
+                else
+                {
+                    Console.WriteLine($"Student with ID {studentId} not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating student: {ex.Message}");
+            }
+        }
+
+        public void DeleteStudent(string studentId)
+        {
+            try
+            {
+                var students = GetAllStudents();
+                bool removed = students.RemoveAll(s => s.StudentId == studentId) > 0;
+
+                if (removed)
+                {
+                    SaveAllStudents(students);
+                }
+                else
+                {
+                    Console.WriteLine($"Student with ID {studentId} not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting student: {ex.Message}");
+            }
+        }
+
+        private void SaveAllStudents(List<Student> students)
+        {
+            using (StreamWriter sw = new StreamWriter(filename, false))
+            {
+                foreach (var student in students)
+                {
+                    sw.WriteLine($"{student.StudentId},{student.StudentName},{student.Age},{student.Course}");
+                }
+            }
+        }
+    }
 
     }
 }
