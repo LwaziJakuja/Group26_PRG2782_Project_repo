@@ -22,7 +22,7 @@ namespace Group26_PRG2782_Project.Data_Layer
             }
         }
 
-        public List<Student> getData()
+        public List<Student> getStudents()
         {
             students = new List<Student>();
             using(StreamReader sr = new StreamReader(filename))
@@ -63,7 +63,7 @@ namespace Group26_PRG2782_Project.Data_Layer
 
             try
             {
-                var students = GetAllStudents();
+                var students = getStudents();
                 int index = students.FindIndex(s => s.StudentId == studentId);
 
                 if (index >= 0)
@@ -86,7 +86,7 @@ namespace Group26_PRG2782_Project.Data_Layer
         {
             try
             {
-                var students = GetAllStudents();
+                var students = getStudents();
                 bool removed = students.RemoveAll(s => s.StudentId == studentId) > 0;
 
                 if (removed)
@@ -116,5 +116,4 @@ namespace Group26_PRG2782_Project.Data_Layer
         }
     }
 
-    }
 }

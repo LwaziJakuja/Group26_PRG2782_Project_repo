@@ -18,6 +18,7 @@ namespace Student_Mangement_Application.Presentation_Layer
     {
         FileHandler handler = new FileHandler();
         Validation valid = new Validation();
+        int age = 0;
         //BindingSource src = new BindingSource();
         List<Student> students;
         string Studentno = "";
@@ -28,7 +29,6 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Studentno = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Student_Mangement_Application.Presentation_Layer
         private void ApplicationFrm_Load(object sender, EventArgs e)
         {
             //retrieve datatset with our databse tables from FileHandler
-            students = handler.getData();
+            students = handler.getStudents();
             dataGridView1.DataSource = students;
         }
 
@@ -68,48 +68,42 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if ((!(valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text))) || (!valid.validAge(Convert.ToInt32(txtAge.Text))) || (!valid.uniqueID(txtStudentId.Text, handler.getData())))
+            //implement validation
+            if (valid.isInteger(txtAge.Text))
             {
-                
+                if ((!(valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, cmbCourse.Text))) || (!valid.validAge(Convert.ToInt32(txtAge.Text))) || (!valid.uniqueID(txtStudentId.Text, handler.getStudents())))
+                {
+
+                }
+                else
+                {
+                    handler.AddNewStudent(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
+                    LoadData();
+                    ClearFields();
+                }
             }
             else
             {
-                handler.AddNewStudent(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = handler.getData();
+                ClearFields();
             }
-            txtNameSurname.Clear(); txtAge.Text = "0"; txtStudentId.Clear(); cmbCourse.Text = " ";
+            
             
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-            //handler.Update(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text), Studentno);
-            txtNameSurname.Clear(); txtAge.Text = "0"; txtStudentId.Clear(); cmbCourse.Text = " ";
-            dataGridView1.DataSource = handler.getData();
-            btnUpdate.Enabled = false;
-            
-            // Validate the input fields
-            string errorMessage = valid.ValidateInput(txtStudentId.Text, txtNameSurname.Text, txtAge.Text, cmbCourse.Text);
-            if (!string.IsNullOrEmpty(errorMessage))
+            if (!valid.isInteger(txtAge.Text))
             {
-                MessageBox.Show(errorMessage, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                
             }
-
-            // Parse the age safely
-            if (!int.TryParse(txtAge.Text, out int age))
+            else
             {
-                MessageBox.Show("Invalid age. Please enter a valid integer.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                age = Convert.ToInt32(txtAge.Text);
             }
-
-            // Retrieve the list of students
-            var existingStudents = handler.GetAllStudents();
 
             // Find the student by the entered StudentId
-            var studentToUpdate = existingStudents.FirstOrDefault(s => s.StudentId == txtStudentId.Text);
+            var studentToUpdate = students.FirstOrDefault(s => s.StudentId == txtStudentId.Text);
 
             if (studentToUpdate == null)
             {
@@ -150,11 +144,9 @@ namespace Student_Mangement_Application.Presentation_Layer
 
             try
             {
-                // Retrieve the list of students
-                var existingStudents = handler.GetAllStudents();
 
                 // Check if the student exists
-                var studentToDelete = existingStudents.FirstOrDefault(s => s.StudentId == studentId);
+                var studentToDelete = students.FirstOrDefault(s => s.StudentId == studentId);
 
                 if (studentToDelete == null)
                 {
@@ -182,18 +174,24 @@ namespace Student_Mangement_Application.Presentation_Layer
                 // Refresh the data and clear input fields
                 LoadData();
                 ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = handler.getData();
+            dataGridView1.DataSource = handler.getStudents();
             txtSearch.Clear();
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //extract selected row information into the respective inputs
+
             txtStudentId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtNameSurname.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtAge.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -224,6 +222,17 @@ namespace Student_Mangement_Application.Presentation_Layer
         private void txtAge_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClearFields()
+        {
+            txtNameSurname.Clear(); txtAge.Text = "0"; txtStudentId.Clear(); cmbCourse.Text = " ";
+        }
+
+        private void LoadData()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = handler.getStudents();
         }
     }
 }

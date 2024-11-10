@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Group26_PRG2782_Project",
+    "\\Group26_PRG2782_Project\\Business logic layer",
     "\\Group26_PRG2782_Project\\presentation layer"
   ],
-  "SelectedNode": "\\Group26_PRG2782_Project\\presentation layer\\ApplicationFrm.cs",
+  "SelectedNode": "\\Group26_PRG2782_Project\\Business logic layer\\Validation.cs",
   "PreviewInSolutionExplorer": false
 }

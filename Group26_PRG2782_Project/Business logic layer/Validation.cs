@@ -9,7 +9,7 @@ namespace Group26_PRG2782_Project.Business_logic_layer
 {
     internal class Validation
     {
-        public bool isEmpty(string studentId, string studentName, int studentAge, string course)
+        public bool isEmpty(string studentId, string studentName, string course)
         {
             bool valid = true;
 
@@ -23,12 +23,6 @@ namespace Group26_PRG2782_Project.Business_logic_layer
             {
                 valid = false;
                 MessageBox.Show("Student Name cannot be empty!");
-            }
-
-            if (studentAge == null)
-            {
-                valid = false;
-                MessageBox.Show("Student Age cannot be empty!");
             }
 
             if (course == "")
@@ -66,6 +60,24 @@ namespace Group26_PRG2782_Project.Business_logic_layer
                     MessageBox.Show($"Student Id: {Id}. Already exists!");
                 }
             }
+            return result;
+        }
+
+        public bool isInteger(string Age)
+        {
+            bool result = false;
+
+            // Parse the age safely
+            if (!int.TryParse(Age, out int age))
+            {
+                MessageBox.Show("Invalid age. Please enter a valid integer.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                result = false;
+            }
+            else
+            {
+                result = true;
+            }
+
             return result;
         }
     }
