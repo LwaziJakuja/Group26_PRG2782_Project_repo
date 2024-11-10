@@ -18,20 +18,17 @@ namespace Student_Mangement_Application.Presentation_Layer
     {
         FileHandler handler = new FileHandler();
         Validation valid = new Validation();
-        BindingSource src;
+        //BindingSource src = new BindingSource();
+        List<Student> students;
         string Studentno = "";
         public ApplicationFrm()
         {
             InitializeComponent();
-            
-            //adding all existing Module Codes from Modules tbl into ModuleCodes combobox list
-            //cmbCourse.DataSource = handler.getCourseCodes();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Studentno = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            MessageBox.Show("The student no is: " + Studentno);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -41,8 +38,9 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void ApplicationFrm_Load(object sender, EventArgs e)
         {
-            //retrieve datatset with our databse tables from DataHandler
-            dataGridView1.DataSource = handler.getData();
+            //retrieve datatset with our databse tables from FileHandler
+            students = handler.getData();
+            dataGridView1.DataSource = students;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -57,8 +55,8 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = handler.Search(txtSearch.Text);
-            btnReset.Enabled = true;
+            dataGridView1.DataSource = handler.Search(txtSearch.Text);
+            txtSearch.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -70,21 +68,28 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            if (!(valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text)))
+            if ((!(valid.isEmpty(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text))) || (!valid.validAge(Convert.ToInt32(txtAge.Text))) || (!valid.uniqueID(txtStudentId.Text, handler.getData())))
             {
-                MessageBox.Show("Cannot insert new details! Please make sure to fill in all necessary fileds before going further.");
+                
             }
             else
             {
                 handler.AddNewStudent(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
+                dataGridView1.DataSource = null;
                 dataGridView1.DataSource = handler.getData();
             }
-            txtNameSurname.Clear(); txtAge.Clear(); txtStudentId.Clear(); cmbCourse.Text = " ";
+            txtNameSurname.Clear(); txtAge.Text = "0"; txtStudentId.Clear(); cmbCourse.Text = " ";
             
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
+            //handler.Update(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text), Studentno);
+            txtNameSurname.Clear(); txtAge.Text = "0"; txtStudentId.Clear(); cmbCourse.Text = " ";
+            dataGridView1.DataSource = handler.getData();
+            btnUpdate.Enabled = false;
+            
             // Validate the input fields
             string errorMessage = valid.ValidateInput(txtStudentId.Text, txtNameSurname.Text, txtAge.Text, cmbCourse.Text);
             if (!string.IsNullOrEmpty(errorMessage))
@@ -181,22 +186,19 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void button1_Click(object sender, EventArgs e)
         {
-             dataGridView1.DataSource = handler.getData();
-             txtSearch.Clear();
-             btnReset.Enabled = false;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = handler.getData();
+            txtSearch.Clear();
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //extract selected row information into the respective inputs
-            /*txtNameSurname.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtImage.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            birthDatePicker.Value = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
-            cmbGender.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            txtPhone.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            txtAddress.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            cmbModuleCodes.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            btnUpdate.Enabled = true;*/
+            txtStudentId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtNameSurname.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtAge.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            cmbCourse.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            btnUpdate.Enabled = true;
         }
 
         private void btnInformation_Click(object sender, EventArgs e)

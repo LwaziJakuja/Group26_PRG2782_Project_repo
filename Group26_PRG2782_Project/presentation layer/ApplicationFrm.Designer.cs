@@ -65,6 +65,7 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // btnInsert
             // 
@@ -179,6 +180,7 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(137, 20);
             this.txtAge.TabIndex = 27;
+            this.txtAge.Text = "0";
             this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // lblAge
@@ -231,7 +233,6 @@ namespace Student_Mangement_Application.Presentation_Layer
             // btnReset
             // 
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(128)))), ((int)(((byte)(238)))));
-            this.btnReset.Enabled = false;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Location = new System.Drawing.Point(60, 325);
             this.btnReset.Name = "btnReset";
