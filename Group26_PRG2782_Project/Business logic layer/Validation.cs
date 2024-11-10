@@ -36,23 +36,37 @@ namespace Group26_PRG2782_Project.Business_logic_layer
                 valid = false;
                 MessageBox.Show("Course Code cannot be empty!");
             }
-
-
             return valid;
         }
 
-        public bool validCourse(string Course)
+        public bool validAge(int age)
         {
             bool valid = false;
 
-            if(Course.Length == 6 && Course.Contains("[a-zA-Z0-9]"))
+            if(age >= 18)
             {
                 valid=true;
+            }
+            else
+            {
+                MessageBox.Show("Student must be 18 years or older!");
             }
 
             return valid;
         }
 
-        
+        public bool uniqueID(string Id, List<Student> students)
+        {
+            bool result = true;
+            foreach (Student student in students)
+            {
+                if (student.StudentId.Equals(Id))
+                {
+                    result = false;
+                    MessageBox.Show($"Student Id: {Id}. Already exists!");
+                }
+            }
+            return result;
+        }
     }
 }
