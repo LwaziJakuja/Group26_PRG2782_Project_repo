@@ -64,7 +64,7 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.dataGridView1.Size = new System.Drawing.Size(772, 207);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnInsert
             // 
@@ -179,6 +179,7 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(137, 20);
             this.txtAge.TabIndex = 27;
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // lblAge
             // 

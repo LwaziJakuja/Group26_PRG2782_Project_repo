@@ -41,6 +41,18 @@ namespace Group26_PRG2782_Project.Business_logic_layer
             return valid;
         }
 
+        public bool validCourse(string Course)
+        {
+            bool valid = false;
+
+            if(Course.Length == 6 && Course.Contains("[a-zA-Z0-9]"))
+            {
+                valid=true;
+            }
+
+            return valid;
+        }
+
         
     }
 }

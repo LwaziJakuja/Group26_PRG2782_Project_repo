@@ -23,8 +23,7 @@ namespace Student_Mangement_Application.Presentation_Layer
         public ApplicationFrm()
         {
             InitializeComponent();
-            //retrieve datatset with our databse tables from DataHandler
-            //dataGridView1.DataSource = handler.getData().Tables[0];
+            
             //adding all existing Module Codes from Modules tbl into ModuleCodes combobox list
             //cmbCourse.DataSource = handler.getCourseCodes();
         }
@@ -42,7 +41,8 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void ApplicationFrm_Load(object sender, EventArgs e)
         {
-            
+            //retrieve datatset with our databse tables from DataHandler
+            dataGridView1.DataSource = handler.getData();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -76,28 +76,19 @@ namespace Student_Mangement_Application.Presentation_Layer
             }
             else
             {
-                //handler.Create(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
-                //dataGridView1.DataSource = handler.getData();
-                string sID = txtStudentId.Text;
-                string sName = txtNameSurname.Text;
-                int sAge = Convert.ToInt32(txtAge.Text);
-                string sCourse = cmbCourse.Text;
-                Student newStudent = new Student {StudentId = sID, StudentName = sName, Age = sAge, Course = sCourse};
-                handler.AddNewStudent(newStudent);
-                MessageBox.Show("Student has successfully been added to the textfile");
+                handler.AddNewStudent(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text));
+                dataGridView1.DataSource = handler.getData();
             }
             txtNameSurname.Clear(); txtAge.Clear(); txtStudentId.Clear(); cmbCourse.Text = " ";
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            /*string Studentno = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            Students students = new Students();
-            students.StudentNumber = Studentno;
-            handler.Update(new Students(txtNameSurname.Text, txtImage.Text, birthDatePicker.Value, cmbGender.Text, txtPhone.Text, txtAddress.Text, cmbModuleCodes.Text), Studentno);
+            //handler.Update(new Student(txtStudentId.Text, txtNameSurname.Text, Convert.ToInt32(txtAge.Text), cmbCourse.Text), Studentno);
             txtNameSurname.Clear(); txtAge.Clear(); txtStudentId.Clear(); cmbCourse.Text = " ";
-            dataGridView1.DataSource = handler.getData().Tables[0];
-            btnUpdate.Enabled = false;*/
+            dataGridView1.DataSource = handler.getData();
+            btnUpdate.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -109,9 +100,9 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* dataGridView1.DataSource = handler.getData();
+             dataGridView1.DataSource = handler.getData();
              txtSearch.Clear();
-             btnReset.Enabled = false;*/
+             btnReset.Enabled = false;
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -143,6 +134,11 @@ namespace Student_Mangement_Application.Presentation_Layer
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
         {
 
         }

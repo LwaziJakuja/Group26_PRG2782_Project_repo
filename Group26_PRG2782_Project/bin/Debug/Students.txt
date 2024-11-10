@@ -1,2 +1,5 @@
-
-
+001,John Doe,21,PRG282
+012,Test,19,BIT
+014,Thomas Wayne,25,BIT
+111,Sihle,20,BCOMP
+056,Sizwe,18,DIT

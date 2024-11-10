@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Group26_PRG2782_Project",
+    "\\Group26_PRG2782_Project\\presentation layer"
   ],
-  "SelectedNode": "\\Group26_PRG2782_Project.sln",
+  "SelectedNode": "\\Group26_PRG2782_Project\\presentation layer\\ApplicationFrm.cs",
   "PreviewInSolutionExplorer": false
 }
