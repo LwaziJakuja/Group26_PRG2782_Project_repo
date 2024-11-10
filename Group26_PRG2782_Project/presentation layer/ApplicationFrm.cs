@@ -133,9 +133,50 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            /*string Studentno = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            handler.Delete(Studentno);
-            dataGridView1.DataSource = handler.getData();*/
+            // Validate that the StudentId field is not empty
+            if (string.IsNullOrWhiteSpace(txtStudentId.Text))
+            {
+                MessageBox.Show("Please enter a Student ID to delete.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Retrieve the StudentId from the textbox
+            string studentId = txtStudentId.Text.Trim();
+
+            try
+            {
+                // Retrieve the list of students
+                var existingStudents = handler.GetAllStudents();
+
+                // Check if the student exists
+                var studentToDelete = existingStudents.FirstOrDefault(s => s.StudentId == studentId);
+
+                if (studentToDelete == null)
+                {
+                    MessageBox.Show("Student with the specified ID does not exist.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Confirm the deletion
+                var confirmResult = MessageBox.Show(
+                    $"Are you sure you want to delete the student record with ID: {studentId}? This action cannot be undone.",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (confirmResult == DialogResult.No)
+                {
+                    return;
+                }
+
+                // Delete the student record
+                handler.DeleteStudent(studentId);
+                MessageBox.Show("Student record deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Refresh the data and clear input fields
+                LoadData();
+                ClearFields();
         }
 
         private void button1_Click(object sender, EventArgs e)
