@@ -1,0 +1,3 @@
+Summary Report
+Total number of students: 19
+Average age of students: 21,53

@@ -1,4 +1,4 @@
-001,John Doe,21,PRG282
+001,John Doe,21,BIT
 012,Test,19,BIT
 014,Thomas Wayne,25,BIT
 111,Sihle,21,BCOMP
@@ -14,5 +14,6 @@
 133,test4,19,BIT
 222,Thomas,40,DIT
 333,Jack,30,BCOMP
-444,Trisha,10,BIT
+444,Trisha,18,BIT
 212,Michael,28,BIT
+142,Johnny,24,BIT

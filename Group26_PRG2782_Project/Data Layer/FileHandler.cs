@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Group26_PRG2782_Project.Data_Layer
 {
@@ -20,6 +21,7 @@ namespace Group26_PRG2782_Project.Data_Layer
             {
                 sw.WriteLine($"{student.StudentId},{student.StudentName},{student.Age},{student.Course}");
             }
+            MessageBox.Show("New user successfully added!");
         }
 
         public List<Student> getStudents()
@@ -112,6 +114,17 @@ namespace Group26_PRG2782_Project.Data_Layer
                 {
                     sw.WriteLine($"{student.StudentId},{student.StudentName},{student.Age},{student.Course}");
                 }
+            }
+        }
+
+        public void SaveReport(int totalStudents, double averageAge)
+        {
+            string filePath = "summary.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine("Summary Report");
+                writer.WriteLine($"Total number of students: {totalStudents}");
+                writer.WriteLine($"Average age of students: {averageAge:F2}");
             }
         }
     }

@@ -36,6 +36,7 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.lblTotStudents = new System.Windows.Forms.Label();
             this.lblAvgAge = new System.Windows.Forms.Label();
             this.txtAvgAge = new System.Windows.Forms.TextBox();
+            this.btnGenerateSummary = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPreviousFrm
@@ -95,12 +96,26 @@ namespace Student_Mangement_Application.Presentation_Layer
             this.txtAvgAge.Size = new System.Drawing.Size(209, 20);
             this.txtAvgAge.TabIndex = 27;
             // 
+            // btnGenerateSummary
+            // 
+            this.btnGenerateSummary.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(164)))), ((int)(((byte)(242)))));
+            this.btnGenerateSummary.FlatAppearance.BorderSize = 0;
+            this.btnGenerateSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateSummary.Location = new System.Drawing.Point(223, 304);
+            this.btnGenerateSummary.Name = "btnGenerateSummary";
+            this.btnGenerateSummary.Size = new System.Drawing.Size(234, 38);
+            this.btnGenerateSummary.TabIndex = 29;
+            this.btnGenerateSummary.Text = "Generate Summary";
+            this.btnGenerateSummary.UseVisualStyleBackColor = false;
+            this.btnGenerateSummary.Click += new System.EventHandler(this.btnGenerateSummary_Click);
+            // 
             // ReportFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(735, 466);
+            this.Controls.Add(this.btnGenerateSummary);
             this.Controls.Add(this.lblAvgAge);
             this.Controls.Add(this.txtAvgAge);
             this.Controls.Add(this.lblTotStudents);
@@ -122,5 +137,6 @@ namespace Student_Mangement_Application.Presentation_Layer
         private Label lblTotStudents;
         private Label lblAvgAge;
         private TextBox txtAvgAge;
+        private Button btnGenerateSummary;
     }
 }

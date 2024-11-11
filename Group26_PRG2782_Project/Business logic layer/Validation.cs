@@ -12,7 +12,7 @@ namespace Group26_PRG2782_Project.Business_logic_layer
         public bool isEmpty(string studentId, string studentName, string course)
         {
             bool valid = true;
-
+            //check for empty values
             if (studentId == "")
             {
                 valid = false;
@@ -34,7 +34,7 @@ namespace Group26_PRG2782_Project.Business_logic_layer
         }
 
         public bool validAge(int age)
-        {
+        {   //ensureing student age is above 18
             bool valid = false;
 
             if(age >= 18)
@@ -52,6 +52,7 @@ namespace Group26_PRG2782_Project.Business_logic_layer
         public bool uniqueID(string Id, List<Student> students)
         {
             bool result = true;
+            //earching through user data to ensure entered studentId is not alread used
             foreach (Student student in students)
             {
                 if (student.StudentId.Equals(Id))

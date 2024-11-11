@@ -18,9 +18,8 @@ namespace Student_Mangement_Application.Presentation_Layer
     {
         FileHandler handler = new FileHandler();
         Validation valid = new Validation();
-        int age = 0;
-        //BindingSource src = new BindingSource();
         List<Student> students;
+        int age = 0;
         string Studentno = "";
         public ApplicationFrm()
         {
@@ -39,8 +38,8 @@ namespace Student_Mangement_Application.Presentation_Layer
         private void ApplicationFrm_Load(object sender, EventArgs e)
         {
             //retrieve datatset with our databse tables from FileHandler
+            dataGridView1.DataSource = handler.getStudents();
             students = handler.getStudents();
-            dataGridView1.DataSource = students;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -55,6 +54,7 @@ namespace Student_Mangement_Application.Presentation_Layer
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //search method
             dataGridView1.DataSource = handler.Search(txtSearch.Text);
             txtSearch.Clear();
         }
